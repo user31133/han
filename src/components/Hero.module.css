@@ -1,0 +1,97 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Tian_Shan_mountains_in_Kyrgyzstan.jpg/1200px-Tian_Shan_mountains_in_Kyrgyzstan.jpg') center/cover no-repeat;
+  /* Note: Using a generic Tian Shan mountain image as placeholder. In a real project, we'd generate a specific image. */
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, var(--color-bg) 120%);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  padding-top: var(--spacing-xl);
+  animation: fadeIn 1.5s ease-out;
+}
+
+.years {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--spacing-md);
+}
+
+.separator {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  margin: 0 auto var(--spacing-md);
+}
+
+.description {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.scrollIndicator {
+  margin-top: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+.arrow {
+  font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; }
+  .subtitle { font-size: 1.25rem; }
+}
