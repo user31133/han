@@ -126,10 +126,7 @@ export default function QuizGame({ onClose }: QuizGameProps) {
       // If invalid input, force re-render to show original score (react quirk with contentEditable)
       // simplified: just don't update state, but we might need to reset the text content if user typed garbage.
       // For now, let's just accept valid numbers.
-      const team = teams.find(t => t.id === id);
-      if (team && e.currentTarget) {
-          e.currentTarget.textContent = team.score.toString();
-      }
+      // Invalid input ignored; contentEditable will reset on next render
     }
   };
 
